@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: Scaffold a typed React component with a co-located test file
 ---
 

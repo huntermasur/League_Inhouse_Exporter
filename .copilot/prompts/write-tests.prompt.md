@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: Write tests for existing code using Vitest and React Testing Library
 ---
 

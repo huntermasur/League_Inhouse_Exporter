@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: Perform a checklist-driven code review on a file or feature
 ---
 

@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: Scaffold a complete feature end-to-end (types → hook → component → tests)
 ---
 
