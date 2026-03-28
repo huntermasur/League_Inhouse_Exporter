@@ -26,6 +26,7 @@ Create a new React component following the project conventions.
 6. If the component needs to be exported from a feature's public API, add it to the feature's `index.ts`.
 
 ## Constraints
+
 - No inline styles — use CSS modules or Tailwind classes
 - No `any` types
 - Props must have defaults or be explicitly required

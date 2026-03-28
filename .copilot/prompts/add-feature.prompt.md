@@ -30,6 +30,7 @@ Build a new feature end-to-end following the project's feature-based folder stru
 7. Export the public API through `index.ts` — keep implementation details private
 
 ## Constraints
+
 - No cross-feature imports except through a feature's `index.ts`
 - No `any` types; use `unknown` + type narrowing when shape is uncertain
 - All async operations must handle errors — never leave a promise unhandled
