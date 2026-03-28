@@ -33,8 +33,12 @@
 
 <!-- List the must-have features for v1. Be specific. -->
 
-- Create a front end web UI that allows users to maintain a list of Game IDs
+- Create a front end web UI
+- Allow user to enter and delete riot game IDs
 - Use game IDs with Riot API to pull game data for the 10 players in the game. Each player should get an entry and it should include username, win/loss, champion, kills, deaths, assists, banned champion
+- Select a game id to see the data stored for that game
+- Maintain a database of records from stored game IDs, only calling the API when adding a new Game ID
+- Visualize data using mockups as reference
 
 ## Out of Scope (for now)
 
@@ -71,7 +75,7 @@
 
 <!-- Any external APIs, services, or integrations needed -->
 
--
+- Riot Games API, search online, key in credentials folder
 
 ## Non-Functional Requirements
 
