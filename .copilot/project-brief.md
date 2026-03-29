@@ -9,7 +9,7 @@
 
 <!-- What is this project? Describe it in 2-3 sentences as if explaining to a new developer. -->
 
-- This project is intended to parse images of league of legends post game screen using the game ID and visualize player stats
+- This project is intended to parse images of league of legends post game screen using an image of the postgame screen and visualize player stats
 
 ## Problem Being Solved
 
@@ -34,10 +34,11 @@
 <!-- List the must-have features for v1. Be specific. -->
 
 - Create a front end web UI
-- Allow user to enter and delete riot game IDs
-- Use game IDs with Riot API to pull game data for the 10 players in the game. Each player should get an entry and it should include username, win/loss, champion, kills, deaths, assists, banned champion
-- Select a game id to see the data stored for that game
-- Maintain a database of records from stored game IDs, only calling the API when adding a new Game ID
+- Allow user add games from an image of the postgame screen
+- Use screenshot to pull data from 10 players in the game. Each player should get an entry and it should include username, role, win/loss, champion, kills, deaths, assists, banned champion
+- Data can be parsed my analyzing the image. The champion can be determined by pairing the champion icon to the datadragon champion asset icons. K D A is available on the image in the form K / D / A. Champion roles are determined by order (1,2,3,4,5 = Top, Jungle, Mid, Bot, Support). Champion bans are also determined by comparing the icon to the datadragon champion asset icon and are associated to players based on order (first listed player = first listed ban)
+- When a game is uploaded, give it an ID and allow the user to view games by ID and delete by ID
+- Maintain a database of records from stored games
 - Visualize data using mockups as reference
 
 ## Out of Scope (for now)
@@ -51,12 +52,11 @@
 <!-- Fill in what's decided. Leave blank if not yet chosen. -->
 
 - Frontend: Vite, React, Typescript
-- Backend:
-- Database:
+- Backend: Express
+- Database: SQlite
 - Auth:
 - Hosting:
 - Key libraries:
-- API: Riot API
 
 ## Architecture Notes
 
@@ -75,7 +75,7 @@
 
 <!-- Any external APIs, services, or integrations needed -->
 
-- Riot Games API, search online, key in credentials folder
+-
 
 ## Non-Functional Requirements
 
