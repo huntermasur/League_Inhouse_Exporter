@@ -1,0 +1,17 @@
+.status {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
