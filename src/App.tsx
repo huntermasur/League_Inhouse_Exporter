@@ -1,17 +1,17 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Layout } from './shared/components/layout';
-import { GamesPage } from './pages/games-page';
-import { StatsPage } from './pages/stats-page';
-import { SettingsPage } from './pages/settings-page';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Layout } from "./shared/components/layout";
+import { GamesPage } from "./pages/games-page";
+import { StatsPage } from "./pages/stats-page";
+import { SettingsPage } from "./pages/settings-page";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       { index: true, element: <GamesPage /> },
-      { path: 'stats', element: <StatsPage /> },
-      { path: 'settings', element: <SettingsPage /> },
+      { path: "stats", element: <StatsPage /> },
+      { path: "settings", element: <SettingsPage /> },
     ],
   },
 ]);
@@ -19,4 +19,3 @@ const router = createBrowserRouter([
 export default function App() {
   return <RouterProvider router={router} />;
 }
-

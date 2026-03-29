@@ -1,14 +1,12 @@
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import type { GamesParticipatedRow } from "../../../shared/types";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from 'recharts';
-import type { GamesParticipatedRow } from '../../../shared/types';
-import { CHART_COLORS, AXIS_STYLE, GRID_STYLE, TOOLTIP_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+  CHART_COLORS,
+  AXIS_STYLE,
+  GRID_STYLE,
+  TOOLTIP_STYLE,
+} from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: GamesParticipatedRow[];
@@ -57,9 +55,14 @@ export function GamesParticipatedChart({ data }: Props) {
         />
         <Tooltip
           {...TOOLTIP_STYLE}
-          formatter={(value) => value != null ? [value, 'Games'] : []}
+          formatter={(value) => (value != null ? [value, "Games"] : [])}
         />
-        <Bar dataKey="count" name="Games" fill={CHART_COLORS.blue} radius={[0, 3, 3, 0]} />
+        <Bar
+          dataKey="count"
+          name="Games"
+          fill={CHART_COLORS.blue}
+          radius={[0, 3, 3, 0]}
+        />
       </BarChart>
     </div>
   );

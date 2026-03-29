@@ -6,10 +6,16 @@ import {
   CartesianGrid,
   Tooltip,
   LabelList,
-} from 'recharts';
-import type { PickCountRow } from '../../../shared/types';
-import { CHART_COLORS, AXIS_STYLE, GRID_STYLE, TOOLTIP_STYLE, LABEL_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+} from "recharts";
+import type { PickCountRow } from "../../../shared/types";
+import {
+  CHART_COLORS,
+  AXIS_STYLE,
+  GRID_STYLE,
+  TOOLTIP_STYLE,
+  LABEL_STYLE,
+} from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: PickCountRow[];
@@ -52,16 +58,27 @@ export function PickCountChart({ data }: Props) {
           />
           <YAxis
             allowDecimals={false}
-            label={{ value: 'Number of Games', angle: -90, position: 'insideLeft', fill: '#9ca3af', fontSize: 11 }}
+            label={{
+              value: "Number of Games",
+              angle: -90,
+              position: "insideLeft",
+              fill: "#9ca3af",
+              fontSize: 11,
+            }}
             tick={AXIS_STYLE.tick}
             axisLine={AXIS_STYLE.axisLine}
             tickLine={AXIS_STYLE.tickLine}
           />
           <Tooltip
             {...TOOLTIP_STYLE}
-            formatter={(value) => value != null ? [value, 'Games'] : []}
+            formatter={(value) => (value != null ? [value, "Games"] : [])}
           />
-          <Bar dataKey="count" name="Games" fill={CHART_COLORS.blue} radius={[3, 3, 0, 0]}>
+          <Bar
+            dataKey="count"
+            name="Games"
+            fill={CHART_COLORS.blue}
+            radius={[3, 3, 0, 0]}
+          >
             <LabelList dataKey="count" position="top" style={LABEL_STYLE} />
           </Bar>
         </BarChart>

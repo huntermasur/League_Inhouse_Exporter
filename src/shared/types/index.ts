@@ -2,8 +2,8 @@
 
 export interface StoredGame {
   match_id: string;
-  game_date: number;      // Unix ms timestamp
-  game_duration: number;  // seconds
+  game_date: number; // Unix ms timestamp
+  game_duration: number; // seconds
   created_at: number;
 }
 
@@ -12,7 +12,7 @@ export interface StoredPlayer {
   match_id: string;
   summoner_name: string;
   champion: string;
-  win: number;  // 0 or 1
+  win: number; // 0 or 1
   kills: number;
   deaths: number;
   assists: number;

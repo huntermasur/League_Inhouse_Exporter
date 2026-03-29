@@ -6,10 +6,16 @@ import {
   CartesianGrid,
   Tooltip,
   LabelList,
-} from 'recharts';
-import type { BanRateRow } from '../../../shared/types';
-import { CHART_COLORS, AXIS_STYLE, GRID_STYLE, TOOLTIP_STYLE, LABEL_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+} from "recharts";
+import type { BanRateRow } from "../../../shared/types";
+import {
+  CHART_COLORS,
+  AXIS_STYLE,
+  GRID_STYLE,
+  TOOLTIP_STYLE,
+  LABEL_STYLE,
+} from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: BanRateRow[];
@@ -59,10 +65,17 @@ export function BanRateChart({ data }: Props) {
           />
           <Tooltip
             {...TOOLTIP_STYLE}
-            formatter={(value) => value != null ? [`${value}%`, 'Ban Rate'] : []}
+            formatter={(value) =>
+              value != null ? [`${value}%`, "Ban Rate"] : []
+            }
           />
           <Bar dataKey="rate" fill={CHART_COLORS.blue} radius={[3, 3, 0, 0]}>
-            <LabelList dataKey="rate" position="top" style={LABEL_STYLE} formatter={(v) => v != null ? `${v}%` : ''} />
+            <LabelList
+              dataKey="rate"
+              position="top"
+              style={LABEL_STYLE}
+              formatter={(v) => (v != null ? `${v}%` : "")}
+            />
           </Bar>
         </BarChart>
       </div>

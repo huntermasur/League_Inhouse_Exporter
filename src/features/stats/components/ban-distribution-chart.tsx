@@ -1,7 +1,7 @@
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import type { BanCountRow } from '../../../shared/types';
-import { TOOLTIP_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import type { BanCountRow } from "../../../shared/types";
+import { TOOLTIP_STYLE } from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: BanCountRow[];
@@ -9,10 +9,26 @@ interface Props {
 
 // A blue-toned palette with enough variety for many slices
 const PIE_COLORS = [
-  '#5b9cf6', '#34d399', '#a78bfa', '#f6706a', '#2dd4bf',
-  '#fbbf24', '#60a5fa', '#f472b6', '#6ee7b7', '#818cf8',
-  '#fb923c', '#4ade80', '#c084fc', '#38bdf8', '#facc15',
-  '#e879f9', '#34d399', '#f87171', '#a3e635', '#fb7185',
+  "#5b9cf6",
+  "#34d399",
+  "#a78bfa",
+  "#f6706a",
+  "#2dd4bf",
+  "#fbbf24",
+  "#60a5fa",
+  "#f472b6",
+  "#6ee7b7",
+  "#818cf8",
+  "#fb923c",
+  "#4ade80",
+  "#c084fc",
+  "#38bdf8",
+  "#facc15",
+  "#e879f9",
+  "#34d399",
+  "#f87171",
+  "#a3e635",
+  "#fb7185",
 ];
 
 export function BanDistributionChart({ data }: Props) {
@@ -35,7 +51,7 @@ export function BanDistributionChart({ data }: Props) {
   return (
     <div className={shared.chartSection}>
       <h3 className={shared.chartTitle}>Champion Ban Distribution</h3>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <PieChart width={620} height={380}>
           <Pie
             data={pieData}
@@ -43,7 +59,9 @@ export function BanDistributionChart({ data }: Props) {
             cy={180}
             outerRadius={150}
             dataKey="value"
-            label={({ name, percent }) => `${name} ${((percent ?? 0) * 100).toFixed(1)}%`}
+            label={({ name, percent }) =>
+              `${name} ${((percent ?? 0) * 100).toFixed(1)}%`
+            }
             labelLine={true}
           >
             {pieData.map((_, i) => (
@@ -52,7 +70,9 @@ export function BanDistributionChart({ data }: Props) {
           </Pie>
           <Tooltip
             {...TOOLTIP_STYLE}
-            formatter={(value, name) => value != null ? [`${value} bans`, String(name)] : []}
+            formatter={(value, name) =>
+              value != null ? [`${value} bans`, String(name)] : []
+            }
           />
         </PieChart>
       </div>

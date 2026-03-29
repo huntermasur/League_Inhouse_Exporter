@@ -1,6 +1,6 @@
-import { useState, useCallback, useEffect } from 'react';
-import { apiClient } from '../../../shared/utils/api-client';
-import type { StoredGame } from '../../../shared/types';
+import { useState, useCallback, useEffect } from "react";
+import { apiClient } from "../../../shared/utils/api-client";
+import type { StoredGame } from "../../../shared/types";
 
 export function useGames() {
   const [games, setGames] = useState<StoredGame[]>([]);
@@ -11,10 +11,10 @@ export function useGames() {
     setLoading(true);
     setError(null);
     try {
-      const data = await apiClient.get<StoredGame[]>('/games');
+      const data = await apiClient.get<StoredGame[]>("/games");
       setGames(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load games');
+      setError(err instanceof Error ? err.message : "Failed to load games");
     } finally {
       setLoading(false);
     }
@@ -26,7 +26,7 @@ export function useGames() {
 
   const addGame = useCallback(
     async (gameId: string): Promise<void> => {
-      await apiClient.post('/games', { game_id: gameId });
+      await apiClient.post("/games", { game_id: gameId });
       await fetchGames();
     },
     [fetchGames],

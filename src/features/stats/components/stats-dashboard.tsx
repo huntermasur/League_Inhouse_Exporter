@@ -1,12 +1,12 @@
-import { useStats } from '../hooks/use-stats';
-import { BanCountChart } from './ban-count-chart';
-import { BanDistributionChart } from './ban-distribution-chart';
-import { BanRateChart } from './ban-rate-chart';
-import { PickCountChart } from './pick-count-chart';
-import { KdaChart } from './kda-chart';
-import { GamesParticipatedChart } from './games-participated-chart';
-import { WinRateChart } from './win-rate-chart';
-import styles from './stats-dashboard.module.css';
+import { useStats } from "../hooks/use-stats";
+import { BanCountChart } from "./ban-count-chart";
+import { BanDistributionChart } from "./ban-distribution-chart";
+import { BanRateChart } from "./ban-rate-chart";
+import { PickCountChart } from "./pick-count-chart";
+import { KdaChart } from "./kda-chart";
+import { GamesParticipatedChart } from "./games-participated-chart";
+import { WinRateChart } from "./win-rate-chart";
+import styles from "./stats-dashboard.module.css";
 
 export function StatsDashboard() {
   const { stats, loading, error } = useStats();

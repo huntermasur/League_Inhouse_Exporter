@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { apiClient } from '../../../shared/utils/api-client';
+import { useState, useCallback } from "react";
+import { apiClient } from "../../../shared/utils/api-client";
 
 interface SaveResult {
   success: boolean;
@@ -16,10 +16,12 @@ export function useSettings() {
     setError(null);
     setSuccessMessage(null);
     try {
-      const result = await apiClient.post<SaveResult>('/settings', { riot_api_key: key });
-      setSuccessMessage(result.message ?? 'Saved!');
+      const result = await apiClient.post<SaveResult>("/settings", {
+        riot_api_key: key,
+      });
+      setSuccessMessage(result.message ?? "Saved!");
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to save');
+      setError(err instanceof Error ? err.message : "Failed to save");
     } finally {
       setSaving(false);
     }

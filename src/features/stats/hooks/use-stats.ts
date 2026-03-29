@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { apiClient } from '../../../shared/utils/api-client';
-import type { StatsResponse } from '../../../shared/types';
+import { useState, useEffect } from "react";
+import { apiClient } from "../../../shared/utils/api-client";
+import type { StatsResponse } from "../../../shared/types";
 
 export function useStats() {
   const [stats, setStats] = useState<StatsResponse | null>(null);
@@ -10,9 +10,11 @@ export function useStats() {
   useEffect(() => {
     setLoading(true);
     apiClient
-      .get<StatsResponse>('/stats')
+      .get<StatsResponse>("/stats")
       .then(setStats)
-      .catch((err) => setError(err instanceof Error ? err.message : 'Failed to load stats'))
+      .catch((err) =>
+        setError(err instanceof Error ? err.message : "Failed to load stats"),
+      )
       .finally(() => setLoading(false));
   }, []);
 

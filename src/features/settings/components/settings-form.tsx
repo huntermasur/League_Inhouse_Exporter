@@ -1,9 +1,9 @@
-import { useState, type FormEvent } from 'react';
-import { useSettings } from '../hooks/use-settings';
-import styles from './settings-form.module.css';
+import { useState, type FormEvent } from "react";
+import { useSettings } from "../hooks/use-settings";
+import styles from "./settings-form.module.css";
 
 export function SettingsForm() {
-  const [apiKey, setApiKey] = useState('');
+  const [apiKey, setApiKey] = useState("");
   const { saving, error, successMessage, saveApiKey } = useSettings();
 
   function handleSubmit(e: FormEvent) {
@@ -21,7 +21,7 @@ export function SettingsForm() {
         <h3 className={styles.sectionHeading}>Riot API Key</h3>
         <p className={styles.description}>
           Enter your Riot Games API key. Development keys expire every 24 hours
-          and can be refreshed at{' '}
+          and can be refreshed at{" "}
           <a
             href="https://developer.riotgames.com"
             target="_blank"
@@ -58,7 +58,7 @@ export function SettingsForm() {
             className={styles.button}
             disabled={saving || !apiKey.trim()}
           >
-            {saving ? 'Saving…' : 'Save API Key'}
+            {saving ? "Saving…" : "Save API Key"}
           </button>
         </form>
       </section>

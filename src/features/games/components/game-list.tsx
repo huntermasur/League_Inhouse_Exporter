@@ -1,5 +1,5 @@
-import type { StoredGame } from '../../../shared/types';
-import styles from './game-list.module.css';
+import type { StoredGame } from "../../../shared/types";
+import styles from "./game-list.module.css";
 
 interface Props {
   games: StoredGame[];
@@ -10,9 +10,9 @@ interface Props {
 
 function formatDate(timestampMs: number): string {
   return new Date(timestampMs).toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
+    year: "numeric",
+    month: "short",
+    day: "numeric",
   });
 }
 
@@ -25,19 +25,21 @@ function formatDuration(seconds: number): string {
 export function GameList({ games, selectedId, onSelect, onDelete }: Props) {
   if (games.length === 0) {
     return (
-      <p className={styles.empty}>No games yet. Add a game ID above to get started.</p>
+      <p className={styles.empty}>
+        No games yet. Add a game ID above to get started.
+      </p>
     );
   }
 
   return (
     <ul className={styles.list}>
       {games.map((g) => {
-        const numericId = g.match_id.replace('NA1_', '');
+        const numericId = g.match_id.replace("NA1_", "");
         const isSelected = g.match_id === selectedId;
         return (
           <li
             key={g.match_id}
-            className={`${styles.item} ${isSelected ? styles.selected : ''}`}
+            className={`${styles.item} ${isSelected ? styles.selected : ""}`}
           >
             <button
               className={styles.selectBtn}

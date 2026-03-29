@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
-import styles from './nav.module.css';
+import { NavLink } from "react-router-dom";
+import styles from "./nav.module.css";
 
 const links = [
-  { to: '/', label: 'Games' },
-  { to: '/stats', label: 'Stats' },
-  { to: '/settings', label: 'Settings' },
+  { to: "/", label: "Games" },
+  { to: "/stats", label: "Stats" },
+  { to: "/settings", label: "Settings" },
 ];
 
 export function Nav() {
@@ -19,9 +19,9 @@ export function Nav() {
           <li key={to}>
             <NavLink
               to={to}
-              end={to === '/'}
+              end={to === "/"}
               className={({ isActive }) =>
-                `${styles.link} ${isActive ? styles.active : ''}`
+                `${styles.link} ${isActive ? styles.active : ""}`
               }
             >
               {label}

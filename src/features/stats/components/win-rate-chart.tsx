@@ -1,14 +1,7 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from 'recharts';
-import type { WinRateRow } from '../../../shared/types';
-import { CHART_COLORS, AXIS_STYLE, GRID_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import type { WinRateRow } from "../../../shared/types";
+import { CHART_COLORS, AXIS_STYLE, GRID_STYLE } from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: WinRateRow[];
@@ -25,9 +18,20 @@ function WinRateTooltip({ active, payload }: TooltipEntry) {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
-    <div style={{ background: '#111827', border: '1px solid #374151', borderRadius: 6, padding: '8px 12px', fontSize: 12, color: '#f9fafb' }}>
+    <div
+      style={{
+        background: "#111827",
+        border: "1px solid #374151",
+        borderRadius: 6,
+        padding: "8px 12px",
+        fontSize: 12,
+        color: "#f9fafb",
+      }}
+    >
       <p style={{ margin: 0, fontWeight: 600 }}>{d.summoner_name}</p>
-      <p style={{ margin: '4px 0 0' }}>Win Rate: {d.rate}% ({d.wins}W / {d.games}G)</p>
+      <p style={{ margin: "4px 0 0" }}>
+        Win Rate: {d.rate}% ({d.wins}W / {d.games}G)
+      </p>
     </div>
   );
 }
@@ -72,10 +76,17 @@ export function WinRateChart({ data }: Props) {
           axisLine={AXIS_STYLE.axisLine}
           tickLine={AXIS_STYLE.tickLine}
         />
-        <Tooltip content={<WinRateTooltip />} cursor={{ fill: 'rgba(255,255,255,0.04)' }} />
-        <Bar dataKey="rate" name="Win %" fill={CHART_COLORS.blue} radius={[0, 3, 3, 0]} />
+        <Tooltip
+          content={<WinRateTooltip />}
+          cursor={{ fill: "rgba(255,255,255,0.04)" }}
+        />
+        <Bar
+          dataKey="rate"
+          name="Win %"
+          fill={CHART_COLORS.blue}
+          radius={[0, 3, 3, 0]}
+        />
       </BarChart>
     </div>
   );
 }
-

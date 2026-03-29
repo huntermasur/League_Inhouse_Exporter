@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { apiClient } from '../../../shared/utils/api-client';
-import type { GameDetail } from '../../../shared/types';
+import { useState, useEffect } from "react";
+import { apiClient } from "../../../shared/utils/api-client";
+import type { GameDetail } from "../../../shared/types";
 
 export function useGameDetail(matchId: string | null) {
   const [detail, setDetail] = useState<GameDetail | null>(null);
@@ -21,7 +21,8 @@ export function useGameDetail(matchId: string | null) {
         if (!cancelled) setDetail(data);
       })
       .catch((err) => {
-        if (!cancelled) setError(err instanceof Error ? err.message : 'Failed to load');
+        if (!cancelled)
+          setError(err instanceof Error ? err.message : "Failed to load");
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

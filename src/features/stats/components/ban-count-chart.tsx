@@ -6,10 +6,16 @@ import {
   CartesianGrid,
   Tooltip,
   LabelList,
-} from 'recharts';
-import type { BanCountRow } from '../../../shared/types';
-import { CHART_COLORS, AXIS_STYLE, GRID_STYLE, TOOLTIP_STYLE, LABEL_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+} from "recharts";
+import type { BanCountRow } from "../../../shared/types";
+import {
+  CHART_COLORS,
+  AXIS_STYLE,
+  GRID_STYLE,
+  TOOLTIP_STYLE,
+  LABEL_STYLE,
+} from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: BanCountRow[];

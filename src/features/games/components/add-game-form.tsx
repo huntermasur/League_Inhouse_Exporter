@@ -1,12 +1,12 @@
-import { useState, type FormEvent } from 'react';
-import styles from './add-game-form.module.css';
+import { useState, type FormEvent } from "react";
+import styles from "./add-game-form.module.css";
 
 interface Props {
   onAdd: (gameId: string) => Promise<void>;
 }
 
 export function AddGameForm({ onAdd }: Props) {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -19,9 +19,9 @@ export function AddGameForm({ onAdd }: Props) {
     setError(null);
     try {
       await onAdd(trimmed);
-      setValue('');
+      setValue("");
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to add game');
+      setError(err instanceof Error ? err.message : "Failed to add game");
     } finally {
       setLoading(false);
     }
@@ -39,8 +39,12 @@ export function AddGameForm({ onAdd }: Props) {
           disabled={loading}
           aria-label="Game ID"
         />
-        <button type="submit" className={styles.button} disabled={loading || !value.trim()}>
-          {loading ? 'Importing…' : 'Add Game'}
+        <button
+          type="submit"
+          className={styles.button}
+          disabled={loading || !value.trim()}
+        >
+          {loading ? "Importing…" : "Add Game"}
         </button>
       </div>
       {error && <p className={styles.error}>{error}</p>}

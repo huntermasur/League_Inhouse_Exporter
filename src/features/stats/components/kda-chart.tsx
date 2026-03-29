@@ -6,10 +6,15 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-} from 'recharts';
-import type { KdaRow } from '../../../shared/types';
-import { CHART_COLORS, AXIS_STYLE, GRID_STYLE, TOOLTIP_STYLE } from './chart-theme';
-import shared from './chart-shared.module.css';
+} from "recharts";
+import type { KdaRow } from "../../../shared/types";
+import {
+  CHART_COLORS,
+  AXIS_STYLE,
+  GRID_STYLE,
+  TOOLTIP_STYLE,
+} from "./chart-theme";
+import shared from "./chart-shared.module.css";
 
 interface Props {
   data: KdaRow[];
@@ -28,7 +33,7 @@ export function KdaChart({ data }: Props) {
   }
 
   const chartWidth = Math.max(data.length * BAR_WIDTH * 3 + 80, 600);
-  const LEGEND_STYLE = { fontSize: 12, color: '#9ca3af' };
+  const LEGEND_STYLE = { fontSize: 12, color: "#9ca3af" };
 
   return (
     <div className={shared.chartSection}>
@@ -51,22 +56,47 @@ export function KdaChart({ data }: Props) {
             tickLine={AXIS_STYLE.tickLine}
           />
           <YAxis
-            label={{ value: 'Number of Games', angle: -90, position: 'insideLeft', fill: '#9ca3af', fontSize: 11 }}
+            label={{
+              value: "Number of Games",
+              angle: -90,
+              position: "insideLeft",
+              fill: "#9ca3af",
+              fontSize: 11,
+            }}
             tick={AXIS_STYLE.tick}
             axisLine={AXIS_STYLE.axisLine}
             tickLine={AXIS_STYLE.tickLine}
           />
           <Tooltip
             {...TOOLTIP_STYLE}
-            formatter={(value, name) => value != null ? [Number(value).toFixed(2), String(name)] : []}
+            formatter={(value, name) =>
+              value != null ? [Number(value).toFixed(2), String(name)] : []
+            }
           />
           <Legend
             wrapperStyle={LEGEND_STYLE}
-            formatter={(value) => <span style={{ color: '#9ca3af' }}>{value}</span>}
+            formatter={(value) => (
+              <span style={{ color: "#9ca3af" }}>{value}</span>
+            )}
           />
-          <Bar dataKey="avg_kills" name="AVERAGE of K" fill={CHART_COLORS.blue} radius={[2, 2, 0, 0]} />
-          <Bar dataKey="avg_deaths" name="AVERAGE of D" fill={CHART_COLORS.red} radius={[2, 2, 0, 0]} />
-          <Bar dataKey="avg_assists" name="AVERAGE of A" fill={CHART_COLORS.amber} radius={[2, 2, 0, 0]} />
+          <Bar
+            dataKey="avg_kills"
+            name="AVERAGE of K"
+            fill={CHART_COLORS.blue}
+            radius={[2, 2, 0, 0]}
+          />
+          <Bar
+            dataKey="avg_deaths"
+            name="AVERAGE of D"
+            fill={CHART_COLORS.red}
+            radius={[2, 2, 0, 0]}
+          />
+          <Bar
+            dataKey="avg_assists"
+            name="AVERAGE of A"
+            fill={CHART_COLORS.amber}
+            radius={[2, 2, 0, 0]}
+          />
         </BarChart>
       </div>
     </div>

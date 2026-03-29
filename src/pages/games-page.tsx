@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { AddGameForm, GameList, GameDetail, useGames } from '../features/games';
-import styles from './games-page.module.css';
+import { useState } from "react";
+import { AddGameForm, GameList, GameDetail, useGames } from "../features/games";
+import styles from "./games-page.module.css";
 
 export function GamesPage() {
   const { games, loading, error, addGame, removeGame } = useGames();

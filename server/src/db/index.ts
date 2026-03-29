@@ -1,18 +1,18 @@
-import { DatabaseSync } from 'node:sqlite';
-import path from 'node:path';
-import fs from 'node:fs';
+import { DatabaseSync } from "node:sqlite";
+import path from "node:path";
+import fs from "node:fs";
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+const DATA_DIR = path.join(process.cwd(), "data");
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-const DB_PATH = path.join(DATA_DIR, 'inhouse.db');
+const DB_PATH = path.join(DATA_DIR, "inhouse.db");
 export const db = new DatabaseSync(DB_PATH);
 
 export function initDb(): void {
-  db.exec('PRAGMA journal_mode = WAL');
-  db.exec('PRAGMA foreign_keys = ON');
+  db.exec("PRAGMA journal_mode = WAL");
+  db.exec("PRAGMA foreign_keys = ON");
 
   db.exec(`
     CREATE TABLE IF NOT EXISTS settings (
